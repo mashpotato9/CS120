@@ -1,0 +1,37 @@
+*{
+    font-family: sans-serif;
+}
+h1, h2{ 
+    color: red;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+ul{
+    border: 2px solid black;
+    width: fit-content;
+    margin: 0 auto;    
+}
+.foodImage{
+    background-image: url('../resources/steak.jpg');
+    background-size: 250px 188px;
+    height: 188px;
+    width: 250px;
+    float: left;
+}
+#book tr:nth-child(odd){
+    background-color: rgb(184, 183, 183);
+}
+#book tr:nth-child(even){
+    background-color: rgb(122, 192, 122);
+}
+label{
+    display: block;
+    text-align: right;
+}
+.icon{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 100px;
+    right: 35px;
+}
