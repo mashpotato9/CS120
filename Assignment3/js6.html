@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 6</title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        function called(arr, val){
+            var count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] < val){
+                    count++;
+                }
+            }
+            var divElement = document.getElementById('result');
+            divElement.textContent = count;
+        }
+
+        function testCount(){
+            var arr = [33, 85, 2, 7, 9, 0, 76, 8, 3];
+            var val = 6;
+            called(arr, val);
+        }
+        
+        testCount();
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem 1</title>
+</head>
+<body>
+    <script>
+        var firstName = prompt("What is your first name?");
+        var lastName = prompt("What is your last name?");
+        alert("You name is " + firstName + " " + lastName);
+
+        var num = prompt("How many children do you have?");
+        if(num == 0){
+            document.write("You have no children");
+        } else if(num == 1){
+            document.write("You have one child");
+        } else if(num > 1){
+            document.write("You have " + num + " children");
+        } else {
+            document.write("Invalid input");
+        }
+    </script>
+</body>
+</html>
