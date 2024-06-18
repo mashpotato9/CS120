@@ -112,12 +112,12 @@ img{
       font-size: 60px;
     }
     nav ul li {
-      display: block;
+      display: inline-block;
       margin-right: 0;
       text-align: center;
     }
     nav ul li a {
-      font-size: 25px;
+      font-size: 30px;
     }
     .banner-description, .songList, .eventList {
       width: 90%;
