@@ -1,0 +1,129 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: #030303;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 35px;
+    height: 100%;
+    line-height: 70px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+nav ul li a:hover{
+    background-color: white;
+    border-radius: 10px;
+    color: #030303;
+}
+img{
+    height: 40%;
+    width: 40%;
+}
+.contact{
+    position: fixed;
+    top: 300px;
+    right: 10px;
+    background-color: rgb(197, 160, 216);
+    border-radius: 20px;
+    padding: 15px;
+    opacity: 0.7;
+    z-index: 999;
+}
+.contact a{
+    color: rgb(1, 29, 47);
+    text-decoration: none;
+    font-size: 20px;
+}
+.contact a:hover{
+    color: white;
+}
+.banner {
+    position: relative;
+    height: 1200px; 
+    background-image: url('../resources/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 75px;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-text h1 {
+    font-size: 100px;
+    text-shadow: #030303 10px 10px 10px;
+  }
+  .banner-description, .songList{
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+    margin-top: 70px;
+}
+.banner-description p, .songList, .eventList{
+    font-size: 25px;
+    line-height: 40px;
+    text-indent: 1em;
+    text-align: justify;
+}
+.songList th, .songList td{
+    padding: 8px;
+    text-align: center;
+}
+.eventList{
+    margin: 20px auto;
+    width: 60%;
+    text-align: center;
+    margin-top: 100px;
+}
+.event{
+    margin-bottom: 40px;
+    line-height: 35px;
+}
+@media screen and (max-width: 600px) {
+    .banner {
+      height: 600px;
+    }
+    .banner-text h1 {
+      font-size: 60px;
+    }
+    nav ul li {
+      display: block;
+      margin-right: 0;
+      text-align: center;
+    }
+    .banner-description, .songList, .eventList {
+      width: 90%;
+    }
+    .banner-description p, .songList, .eventList {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    table {
+      margin: 50px auto;
+    }
+  }
