@@ -116,6 +116,9 @@ img{
       margin-right: 0;
       text-align: center;
     }
+    nav ul li a {
+      font-size: 30px;
+    }
     .banner-description, .songList, .eventList {
       width: 90%;
     }
