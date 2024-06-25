@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+</head>
+<body>
+
+    <p id="names"></p>
+
+    <script>
+        var text = "";
+        var str = "Pat, Chris, Marlon, Ferncroft, Assunta"
+        var arr = str.split(", ");
+
+        arr.forEach(myFunction);
+        document.getElementById("names").innerHTML = text;
+
+        function myFunction(value, index) {
+            text += (index + 1) + ". " + value + "<br>";
+        }
+
+    </script>
+</body>
+</html>

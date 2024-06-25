@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <form>
+        <p> User Name: <input type="text" id="username"> </p>
+        <input type="button" value="Hello" id="helloBtn">
+        <input type="button" value="Good Bye" id="goodbyeBtn">
+        <input type="button" value="Greetings" id="greetingsBtn">
+    </form>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('helloBtn').onclick = speak;
+            document.getElementById('goodbyeBtn').onclick = speak;
+            document.getElementById('greetingsBtn').onclick = speak;
+        }
+
+        function speak(){
+            let name = document.getElementById("username").value
+            let prefix = this.value;
+            alert(prefix + " " + name)
+        }
+    </script>
+</body>
+</html>

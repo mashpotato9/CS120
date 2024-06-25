@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 5</title>
+    <style>
+        #selectedStates {
+            border: 1px solid rgb(18, 8, 129);
+            min-height: 20px;
+            padding: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <select size="10" id="stateList"></select>
+    <button id="addState">Add State</button>
+    <div id="selectedStates"></div>
+    <button id="removeStates">Clear State</button>
+
+    <script> 
+        const states = [
+            "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+            "Colorado", "Connecticut", "Delaware", "Florida", "Georgia"
+        ];
+
+        window.onload = function() {
+            const stateList = document.getElementById('stateList');
+            
+            states.forEach((state, index) => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                if (index === 0) option.selected = true;
+                stateList.appendChild(option);
+            });
+
+            document.getElementById('addState').onclick = function() {
+                const selectedState = stateList.value;
+                const selectedStatesDiv = document.getElementById('selectedStates');
+                const stateElement = document.createElement('p');
+                stateElement.textContent = selectedState;
+                selectedStatesDiv.appendChild(stateElement);
+            };
+
+            document.getElementById('removeStates').onclick = function() {
+                document.getElementById('selectedStates').innerHTML = '';
+            };
+        };
+    </script>
+</body>
+</html>
