@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        #songList {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Song Filter by Genre</h1>
+    <form id="genreForm">
+        <select id="genreSelect">
+            <option value="">Select a genre</option>
+        </select>
+        <button type="button" id="filterButton">Filter</button>
+    </form>
+    <div id="songList"></div>
+
+    <script>
+    $(document).ready(function() {
+        let songsData;
+
+        // Read the JSON file
+        $.getJSON('songs.json', function(data) {
+            songsData = data.songs;
+            populateGenres(songsData);
+        });
+
+        // Populate the genre dropdown
+        function populateGenres(songs) {
+            let genres = new Set();
+            songs.forEach(song => {
+                song.genres.forEach(genre => genres.add(genre));
+            });
+
+            genres.forEach(genre => {
+                $('#genreSelect').append($('<option>', {
+                    value: genre,
+                    text: genre
+                }));
+            });
+        }
+
+        // Filter button click handler
+        $('#filterButton').click(function() {
+            let selectedGenre = $('#genreSelect').val();
+            if (!selectedGenre) {
+                $('#songList').html('<p>Please select a genre.</p>');
+                return;
+            }
+
+            let filteredSongs = songsData.filter(song => 
+                song.genres.includes(selectedGenre)
+            );
+
+            displayFilteredSongs(filteredSongs);
+        });
+
+        // Display filtered songs
+        function displayFilteredSongs(songs) {
+            let songListHtml = '<h2>Filtered Songs:</h2><ul>';
+            songs.forEach(song => {
+                songListHtml += `<li>${song.title}</li>`;
+            });
+            songListHtml += '</ul>';
+
+            $('#songList').html(songListHtml);
+        }
+    });
+    </script>
+</body>
+</html>

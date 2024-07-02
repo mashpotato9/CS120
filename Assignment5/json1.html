@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 1</title>
+</head>
+<body>
+    <h1>Song List JSON</h1>
+    <pre id="jsonDisplay"></pre>
+
+    <script>
+        const songList = {
+            "songs": [
+                {
+                    "title": "Bohemian Rhapsody",
+                    "artist": "Queen",
+                    "year": 1975,
+                    "genres": ["rock", "progressive rock"]
+                },
+                {
+                    "title": "Thriller",
+                    "artist": "Michael Jackson",
+                    "year": 1982,
+                    "genres": ["pop", "funk"]
+                },
+                {
+                    "title": "​through the late night",
+                    "artist": "Travis Scott",
+                    "year": 2016,
+                    "genres": ["Hip hop"]
+                },
+                {
+                    "title": "Like a Rolling Stone",
+                    "artist": "Bob Dylan",
+                    "year": 1965,
+                    "genres": ["rock", "folk rock"]
+                },
+                {
+                    "title": "Smells Like Teen Spirit",
+                    "artist": "Nirvana",
+                    "year": 1991,
+                    "genres": ["rock", "grunge"]
+                },
+                {
+                    "title": "Billie Jean",
+                    "artist": "Michael Jackson",
+                    "year": 1983,
+                    "genres": ["pop"]
+                },
+                {
+                    "title": "Hotel California",
+                    "artist": "Eagles",
+                    "year": 1977,
+                    "genres": ["rock"]
+                },
+                {
+                    "title": "Spending Addiction",
+                    "artist": "Gunna",
+                    "year": 2018,
+                    "genres": ["Hip hop"]
+                },
+                {
+                    "title": "Ojitos Lindos",
+                    "artist": "Bad Bunny",
+                    "year": 2022,
+                    "genres": ["Latin"]
+                },
+                {
+                    "title": "ROMÁNTICOS DE LUNES",
+                    "artist": "Feid",
+                    "year": 2023,
+                    "genres": ["Urbano latino"]
+                }
+            ]
+        };
+        const jsonString = JSON.stringify(songList, null, 2);
+
+        document.getElementById('jsonDisplay').textContent = jsonString;
+    </script>
+</body>
+</html>

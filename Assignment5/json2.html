@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        #songList {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .song {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .song:last-child {
+            border-bottom: none;
+        }
+        .song-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        .song-info {
+            margin-top: 5px;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Song List</h1>
+    <div id="songList"></div>
+
+    <script>
+        $(document).ready(function() {
+            $.get('songs.json', function(data) {
+                let songListHtml = '';
+                data.songs.forEach(song => {
+                    songListHtml += `
+                        <div class="song">
+                            <div class="song-title">${song.title}</div>
+                            <div class="song-info">
+                                Artist: ${song.artist}<br>
+                                Genre: ${song.genres.join(', ')}<br>
+                                Released: ${song.year}
+                            </div>
+                        </div>
+                    `;
+                });
+                $('#songList').html(songListHtml);
+            });
+        });
+    </script>
+</body>
+</html>
