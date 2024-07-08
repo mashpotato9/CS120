@@ -1,0 +1,19 @@
+div{
+    display: inline-block;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    vertical-align: top;
+    font-size: 95px;
+    text-align: center;
+}
+.correct{
+    background-color: green;
+}
+.present{
+    background-color: yellow;
+}
+.absent{
+    background-color: gray;
+}
