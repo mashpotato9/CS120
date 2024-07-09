@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Amiibo Display</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .amiibo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .amiibo-card {
+            border: 1px solid #050404;
+            padding: 10px;
+            width: 230px;
+        }
+        .amiibo-card img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mario Amiibo Collection</h1>
+    <div id="amiibo-container" class="amiibo-container"></div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://www.amiiboapi.com/api/amiibo/?name=mario',
+                method: 'GET',
+                dataType: 'json',
+                success: (data) => {
+                    var container = $('#amiibo-container');
+                    $.each(data.amiibo, function(index, amiibo) {
+                        var card = $('<div>').addClass('amiibo-card');
+                        card.html(`
+                            <img src="${amiibo.image}" alt="${amiibo.name}">
+                            <h3>${amiibo.name}</h3>
+                            <p>Series: ${amiibo.amiiboSeries}</p>
+                            <p>Game Series: ${amiibo.gameSeries}</p>
+                            <p>Type: ${amiibo.type}</p>
+                        `);
+                        container.append(card);
+                    });
+                },
+                error: (xhr, status, error) => {
+                    console.error('Error fetching amiibo data:', error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
